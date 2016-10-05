@@ -1,7 +1,7 @@
 #EBS creation related
 variable "mod_ebs_name" {
   type = "string"
-  description = "Usually is your hostname of the instance for which you create EBS volume"
+  description = "Usually is your hostname of the instance for which you create EBS volume, value need to be unique for specific instance it can be used for multiple volumes if we want more then one volume attached to that instance"
   default = ""
 }
 variable "mod_ebs_is_encrypt" {
@@ -46,16 +46,16 @@ variable "mod_ebs_tier" {
 }
 variable "mod_ebs_role" {
   type = "string"
-  description = "used for tags, Role tag.Also that tag will be used for microservice terrafrom userdata script to attach to the instance which that role"
+  description = "used for tags, Role tag."
   default = ""
 }
 variable "mod_ebs_mp" {
   type = "string"
-  description = "specify mountpoint for the volume, it can be anything except for /(root) scope, his is also used for userdata.sh which is used inside EC2 instance userdata to determine where the volume neet to mounted" 
+  description = "specify mountpoint for the volume, it can be anything except for /(root) scope, his is also used for userdata.sh which is used inside EC2 instance userdata to determine where the volume neet to mounted. Value need to be unique if used with more then one volume for same instance" 
   default = ""
 }
 variable "mod_ebs_dev" {
   type = "string"
-  description = "specify device name to be attached in devices folder, this is also used for userdata.sh which is used inside EC2 instance userdata to determine on what name volume will appear in EC2 description page" 
+  description = "specify device name to be attached in devices folder, this is also used for userdata.sh which is used inside EC2 instance userdata to determine on what name volume will appear in EC2 description page. Also if we creating multiple volumes for one instance it need to be unique for each volume for that instance" 
   default = "sdf"
 }
